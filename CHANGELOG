@@ -1,3 +1,6 @@
+# 0.12.6.3
+Add removal of the gzipped binaries in the gem native extension build step (disabled by default)
+
 # 0.12.6.2
 
 OS mapping for more distros, based in official support OS for wkhtmltopdf
@@ -50,4 +53,3 @@ Update MacOS `wkhtmltopdf` binary to 0.9.9
 
 # 0.9.9
 Update `wkhtmltopdf` binaries with version 0.9.9
-
