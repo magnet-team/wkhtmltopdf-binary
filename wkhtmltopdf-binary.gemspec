@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "wkhtmltopdf-binary"
-  s.version = "0.12.6.2"
+  s.version = "0.12.6.5"
   s.license = "Apache-2.0"
   s.author = "Zakir Durumeric"
   s.email = "zakird@gmail.com"
@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
   s.require_path = '.'
   s.extensions = ['ext/extconf.rb'.freeze]
   s.add_development_dependency "minitest"
+  s.add_development_dependency "rake"
 end

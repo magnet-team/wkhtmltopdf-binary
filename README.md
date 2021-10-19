@@ -18,8 +18,6 @@ The various wkhtmltopdf-binaries will be installed here:
 
     /usr/lib/ruby/versions/2.6/lib/ruby/gems/2.6.0/gems/wkhtmltopdf-binary-0.12.5.1/bin/
 
-Set WKHTMLTOPDF_GEM_MINIMIZE to 'yes' to remove all binaries except for the current platform.
-
 Giving write access whatever user is running your program (e.g. web server, background job processor),
 e.g. your own personal user in a dev environment, will fix the problem. After the binary is uncompressed, write access can be revoked again if desired.
 
@@ -39,6 +37,10 @@ CentOS
 
     rpm2cpio wkhtmltox-0.12.5-1.centos7.x86_64.rpm | cpio -idmv
 
+Archlinux/manjaro
+
+    tar -xf wkhtmltox-0.12.6-1.archlinux.x86_64.tar.xz
+
 macOS
 
     xar -xf wkhtmltox-0.12.5-1.macos-cocoa.pkg
@@ -49,15 +51,20 @@ macOS
 Binaries should be compressed with `gzip --best` after extracting. The matching binary will be extracted on first
 execution of `bin/wkhtmltopdf`.
 
-## Testing with Docker
+## Testing
 
-Make sure you have Docker and Docker Compose installed (see https://docs.docker.com/compose/install/ for more
-information).
+To execute gem tests locally, install in your OS:
 
-There are Dockerfiles for the supported Linux based distributions under `.docker`. You can build them all with
-`docker-compose build` and run each individually with e.g. `docker-compose run ubuntu_18.04`.
+- Docker
+- Docker compose
+- Ruby
+- Bundler
 
-There also is a rudimentary minitest test that simply invokes `docker-compose run` for each distribution and
-expects to see the output of `wkhtmltopdf --version`. Just run `rake` to run it.
+Then, execute the commands below:
 
-You can clean up after testing with `docker-compose down --rmi all`.
+```bash
+git clone https://github.com/zakird/wkhtmltopdf_binary_gem
+cd wkhtmltopdf_binary_gem/
+bundle install
+bundle exec rake
+```
