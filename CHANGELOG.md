@@ -68,3 +68,4 @@ Update MacOS `wkhtmltopdf` binary to 0.9.9
 
 # 0.9.9
 Update `wkhtmltopdf` binaries with version 0.9.9
+

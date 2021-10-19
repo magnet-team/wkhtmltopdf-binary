@@ -13,14 +13,8 @@ BUILD_PATH = File.dirname(File.expand_path(__FILE__))
 # Check platform and upack binary
 load "#{BUILD_PATH}/../bin/wkhtmltopdf"
 
-MINIMIZE = %w(1 yes y yep true).any? do |e|
-  ENV['WKHTMLTOPDF_GEM_MINIMIZE']&.downcase&.include? e
-end
-
-if MINIMIZE
-  # Remove gziped binaries from the bin directory
-  Dir.glob("#{File.dirname(binary)}/*.gz").each { |gz| File.delete(gz) }
-end
+# Remove gziped binaries from the bin directory
+Dir.glob("#{File.dirname(binary)}/*.gz").each { |gz| File.delete(gz) }
 
 # Write phony Makefile
 File.write "#{BUILD_PATH}/Makefile", <<~MAKE
